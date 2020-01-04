@@ -1,0 +1,26 @@
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        max_length = max(len(a),len(b))
+        a = a.zfill(max_length)
+        b = b.zfill(max_length)
+        result = ""
+        carry = 0
+        for i in range(max_length-1, -1, -1):
+            r = carry
+            if a[i] == "1":
+                r += 1
+            if b[i] == "1":
+                r += 1
+            result = ("1" if r % 2 == 1 else "0")+ result
+            if r < 2:
+                carry = 0
+            else:
+                carry = 1
+        if carry != 0:
+            result = "1" + result
+        return result
