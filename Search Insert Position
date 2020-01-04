@@ -1,0 +1,11 @@
+class Solution(object):
+    from bisect import bisect
+    def searchInsert(self, nums, target):
+        x = bisect.bisect_left(nums, target)
+        return x
+    # def searchInsert(self, nums, target):
+    #     for i in range(len(nums)):
+    #         if nums[i] >= target:
+    #             return i
+    #         elif nums[-1]< target:
+    #             return len(nums)
