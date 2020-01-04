@@ -1,0 +1,13 @@
+class Solution(object):
+    def isValid(self, s):
+        par_map = {"(":")","[":"]","{":"}"}
+        par_open = set(["(","[","{"])
+        stack = []
+        for i in s:
+            if i in par_open:
+                stack.append(i)
+            elif stack != [] and i == par_map[stack[-1]]:
+                stack.pop()
+            else:
+                return False
+        return stack == []
