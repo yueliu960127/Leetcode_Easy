@@ -22,10 +22,3 @@ class Solution(object):
                 result = right
             print(result)
         return result - 1
-        
-        
-#         for i in range(int(10**digits), int(10**(digits+1))):
-#             if i**2 <= x:
-#                 i += 1
-#             else:
-#                 return i-1
