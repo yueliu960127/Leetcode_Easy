@@ -1,0 +1,31 @@
+class Solution(object):
+    def mySqrt(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        if x == 0 or x == 1:
+            return x
+        import math
+        digits = math.log10(x)/2
+        left = int(10**digits)
+        right = int(10**(digits+1))
+        result = 0
+        while (result+1)**2 < x or (result-1)**2 > x:
+            if ((left + right)/2)**2 < x:
+                left = (left + right)/2
+                result = left
+            elif ((left + right)/2)**2 == x:
+                return (left + right)/2
+            elif ((left + right)/2)**2 > x:
+                right = (left + right)/2
+                result = right
+            print(result)
+        return result - 1
+        
+        
+#         for i in range(int(10**digits), int(10**(digits+1))):
+#             if i**2 <= x:
+#                 i += 1
+#             else:
+#                 return i-1
