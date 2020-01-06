@@ -1,0 +1,23 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        """https://github.com/yueliu960127/Leetcode_Easy
+        :type prices: List[int]
+        :rtype: int
+        """
+        max_profit = 0
+        j = 0
+        for i in range(len(prices)):
+            if i > j:
+                j += 1
+            elif i == j:
+                pass
+            else:
+                continue
+            while j < len(prices)-1:
+                if prices[j+1] > prices[j]:
+                    j += 1
+                else:
+                    break
+            max_profit += prices[j] - prices[i]
+            
+        return max_profit
