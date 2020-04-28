@@ -1,0 +1,26 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+#         for i in range(len(digits)-1,-1,-1):
+#             if digits[i] < 9:
+#                 digits[i] += 1
+#                 return digits
+#             digits[i] = 0
+        
+#         digits.insert(0,1)
+#         return digits
+
+        i = len(digits)-1
+        carry = 1
+        while carry != 0 and i >=0:
+            number = carry + digits[i]
+            if number < 10:
+                digits[i] = number
+                return digits
+            else:
+                rest = number%10
+                carry = (number - rest)//10
+                digits[i] = rest
+                i -= 1
+        if carry > 0:
+            digits = [carry] + digits
+        return digits
